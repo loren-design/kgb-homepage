@@ -95,14 +95,14 @@ section{padding:48px 0;border-top:1px solid var(--line)}
 .counts .samplenote{margin-top:10px;font-size:12px;color:var(--muted);text-align:center}
 @media (max-width:480px){.counts .statrow{grid-template-columns:1fr}}
 
-.planframe{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:6px 0}
-.planrow{display:flex;align-items:center;gap:12px;width:100%;background:none;border:none;border-bottom:1px solid var(--line);padding:16px 18px;font-family:Georgia,serif;font-size:17px;color:var(--ink);text-align:left;cursor:pointer}
+.planframe{background:var(--ink);border:1px solid var(--gold);border-radius:12px;padding:6px 0;overflow:hidden}
+.planrow{display:flex;align-items:center;gap:12px;width:100%;background:none;border:none;border-bottom:1px solid #e0d6c2;padding:16px 18px;font-family:Georgia,serif;font-size:17px;color:#241f18;text-align:left;cursor:pointer}
 .planframe .planrow:last-of-type{border-bottom:none}
-.planrow .chk{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px dashed var(--gold);display:flex;align-items:center;justify-content:center}
-.planrow .chk svg{width:17px;height:17px;stroke:var(--gold-soft)}
-.planrow .caret{margin-left:auto;color:var(--muted);font-size:12px;transition:transform .25s}
+.planrow .chk{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px dashed #8a6a1f;background:rgba(201,162,75,.12);display:flex;align-items:center;justify-content:center}
+.planrow .chk svg{width:17px;height:17px;stroke:#8a6a1f}
+.planrow .caret{margin-left:auto;color:#8a6a1f;font-size:12px;transition:transform .25s}
 .planrow.open .caret{transform:rotate(180deg)}
-.plandetail{display:none;padding:0 18px 16px 64px;font-size:14px;color:var(--muted);border-bottom:1px solid var(--line)}
+.plandetail{display:none;padding:14px 18px 14px 64px;font-size:14px;color:var(--gold-soft);background:var(--bg);border-bottom:1px solid #e0d6c2}
 .plandetail.open{display:block}
 .hotlinks{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 .pill{display:inline-flex;align-items:center;gap:9px;border:1px dashed var(--gold);border-radius:999px;padding:11px 20px;font-family:Georgia,serif;font-size:15px;color:var(--gold-soft);transition:border-color .2s,box-shadow .2s}
@@ -110,9 +110,28 @@ section{padding:48px 0;border-top:1px solid var(--line)}
 .pill:hover{border-style:solid;box-shadow:0 0 16px rgba(201,162,75,.25)}
 .pill-flare{border-color:var(--flare);color:var(--flare)}
 .pill-flare:hover{box-shadow:0 0 16px rgba(255,107,53,.28)}
-.guide .guideface{width:84px;height:84px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin-bottom:14px;display:block}
-.guide .guidehead{font-family:Georgia,serif;font-weight:normal;font-size:clamp(21px,5.5vw,28px);line-height:1.3;color:var(--gold-soft);margin:0 0 18px}
+.guide .guideface{width:96px;height:96px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);float:left;margin:4px 18px 8px 0;shape-outside:circle(50%)}
+.guide .guidebody::after{content:"";display:block;clear:both}
+.guide .guidehead{font-family:Georgia,serif;font-weight:normal;font-size:clamp(21px,5.5vw,28px);line-height:1.3;color:var(--gold-soft);margin:0 0 28px}
 .guide p{margin-bottom:14px}
+.alone p{font-size:16px}
+.statrow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:6px 0 20px}
+.stat{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:16px 12px;text-align:center}
+.stat b{display:block;font-family:Georgia,serif;font-weight:normal;font-size:32px;color:var(--gold-soft)}
+.stat span{font-size:12px;color:var(--muted);line-height:1.4;display:block;margin-top:4px}
+@media (max-width:480px){.statrow{grid-template-columns:1fr}}
+.topicgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px;text-align:center}
+.topicgrid span{font-family:Georgia,serif;font-size:15px;color:var(--gold-soft);padding:9px 6px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media (max-width:520px){.topicgrid{grid-template-columns:repeat(3,1fr)}.topicgrid span{font-size:14px}}
+.creamband{background:var(--ink);border-top:1px solid var(--gold);border-bottom:1px solid var(--gold)}
+.creamband .eyebrow{color:#8a6a1f}
+.creamband p{color:#241f18}
+.creamband .pill{border:1px solid #8a6a1f;color:#241f18;background:transparent}
+.creamband .pill svg{stroke:#8a6a1f}
+.creamband .pill:hover{box-shadow:0 0 16px rgba(138,106,31,.35)}
+.creamband .pill-flare{border-color:#c2410c;color:#241f18}
+.creamband .pill-flare svg{stroke:#c2410c}
+.creamband .pill-flare:hover{box-shadow:0 0 16px rgba(194,65,12,.3)}
 /* QUIET FOOTER */
 footer{border-top:1px solid var(--line);padding:36px 0 48px;text-align:center}
 footer .wall{font-family:Georgia,serif;font-style:italic;color:var(--muted);font-size:15px;margin-bottom:18px}
@@ -193,10 +212,12 @@ footer nav a:hover{color:var(--gold-soft)}
   <div class="wrap">
     <p class="eyebrow">I've been there</p>
     <h2 class="guidehead">&ldquo;Why would I need Jesus if I'm already talking to His dad?&rdquo;</h2>
-    <img class="guideface" src="loren.jpg" alt="Loren Alves" onerror="this.style.display='none'">
-    <p>That's what I asked a pastor. I wasn't raised with any religion &mdash; I wasn't mad at God, I just didn't know Him. I got sober in 1991, and in the late nineties I started going to church because I figured that's where God lived, and my little girl didn't need an AA meeting to learn about Him. I kept being drawn back to that pastor. In 2000, I surrendered to Jesus &mdash; and found the God I'd been looking for: the God of the Bible, the One who created me, the Father Jesus calls His own. And now mine.</p>
-    <p>That's why it's called Know God Better.</p>
-    <p class="soon"><a href="https://pray.knowgodbetter.org#story">Read my whole story &rarr;</a></p>
+    <div class="guidebody">
+      <img class="guideface" src="loren.jpg" alt="Loren Alves" onerror="this.style.display='none'">
+      <p>That's what I asked a pastor. I wasn't raised with any religion &mdash; I wasn't mad at God, I just didn't know Him. I got sober in 1991, and in the late nineties I started going to church because I figured that's where God lived, and my little girl didn't need an AA meeting to learn about Him. I kept being drawn back to church, and over the next six months I found a great pastor &mdash; a patient one &mdash; who helped me unpack that question. In 2000, I surrendered to Jesus and found the God I'd been looking for: the God of the Bible, the One who created me, the Father Jesus calls His own. And now mine.</p>
+      <p>That's why it's called Know God Better Ministries &mdash; helping people know God as the loving Father He is, not the one He's been misrepresented as.</p>
+      <p class="soon"><a href="https://pray.knowgodbetter.org#story">Read my whole story &rarr;</a></p>
+    </div>
   </div>
 </section>
 
@@ -205,16 +226,33 @@ footer nav a:hover{color:var(--gold-soft)}
     <p class="eyebrow">How this works</p>
     <div class="planframe">
       <button class="planrow" onclick="togglePlan(this)"><span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 20s-7-4.5-9-9c-1.2-2.8.6-6 3.6-6 1.9 0 3.4 1.1 4.2 2.6h2.4C14 6.1 15.5 5 17.4 5c3 0 4.8 3.2 3.6 6-2 4.5-9 9-9 9z"/></svg></span>Come as you are<span class="caret" aria-hidden="true">&#9662;</span></button>
-      <div class="plandetail">No cleanup required. He already knows.</div>
+      <div class="plandetail">No cleanup required. He already knows everything &mdash; and He came looking anyway.</div>
       <button class="planrow" onclick="togglePlan(this)"><span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 3v10"/><path d="M8 7c0-2.2 1.8-4 4-4s4 1.8 4 4"/><path d="M5 12a7 7 0 0 0 14 0"/><path d="M12 17v4M8 21h8"/></svg></span>Pray &mdash; or get prayer<span class="caret" aria-hidden="true">&#9662;</span></button>
-      <div class="plandetail">Out loud yourself, or send a flare and let us carry it.</div>
+      <div class="plandetail">Out loud yourself, or send a flare and let us carry it. Prayer isn't a performance &mdash; it's talking to your Father.</div>
       <button class="planrow" onclick="togglePlan(this)"><span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 11l8-7 8 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></svg></span>Know Him as Father<span class="caret" aria-hidden="true">&#9662;</span></button>
-      <div class="plandetail">Not the God you were warned about. The Father who runs to meet you.</div>
+      <div class="plandetail">He's not one-sided &mdash; He's whole. Perfectly just and endlessly loving. And when you're His kid, correction is never rejection.</div>
     </div>
   </div>
 </section>
 
-<section class="success reveal">
+<section class="alone reveal">
+  <div class="wrap">
+    <p class="eyebrow">You're not praying alone</p>
+    <div class="statrow">
+      <div class="stat"><b>1,004</b><span>times people came here to pray last month</span></div>
+      <div class="stat"><b>493</b><span>written prayers ready right now</span></div>
+      <div class="stat"><b>706</b><span>voiced prayers to pray out loud with you</span></div>
+    </div>
+    <p>And that's just online &mdash; every week we pray face-to-face with people at The Healing House of Yuma. All of them carrying the same things you are:</p>
+    <div class="topicgrid" aria-label="Things people are praying through">
+      <span>Anxiety</span><span>Depression</span><span>Addiction</span><span>Grief</span>
+      <span>Physical pain</span><span>Fear</span><span>Healing</span><span>Deliverance</span>
+      <span>Family</span><span>Forgiveness</span>
+    </div>
+  </div>
+</section>
+
+<section class="success reveal creamband">
   <div class="wrap">
     <p class="eyebrow">These links can change your life &mdash; starting right now</p>
     <p>You stop guessing whether God is mad at you. You learn the difference between correction and punishment. You find out you were adopted, not put on probation &mdash; and you start living like somebody who belongs in the house.</p>
@@ -230,7 +268,6 @@ footer nav a:hover{color:var(--gold-soft)}
 
 <footer>
   <div class="wrap">
-    <p class="wall"><a href="wall.html">Prayers &amp; engagements &rarr; The Wall</a></p>
     <nav>
       <a href="https://1billionforjesus.org">Partners &amp; funders</a> ·
       <a href="privacy.html">Privacy</a> ·
