@@ -132,6 +132,11 @@ section{padding:48px 0;border-top:1px solid var(--line)}
 .creamband .pill-flare{border-color:#c2410c;color:#241f18}
 .creamband .pill-flare svg{stroke:#c2410c}
 .creamband .pill-flare:hover{box-shadow:0 0 16px rgba(194,65,12,.3)}
+.readmore{background:none;border:none;font-family:Georgia,serif;font-size:15px;color:var(--gold-soft);cursor:pointer;padding:2px 0;border-bottom:1px dotted var(--gold);margin:2px 0 6px}
+.readmore .caret{font-size:11px;color:var(--muted);transition:transform .25s;display:inline-block;margin-left:4px}
+.readmore.open .caret{transform:rotate(180deg)}
+.storyrest{display:none;margin-top:12px}
+.storyrest.open{display:block}
 /* QUIET FOOTER */
 footer{border-top:1px solid var(--line);padding:36px 0 48px;text-align:center}
 footer .wall{font-family:Georgia,serif;font-style:italic;color:var(--muted);font-size:15px;margin-bottom:18px}
@@ -214,9 +219,13 @@ footer nav a:hover{color:var(--gold-soft)}
     <h2 class="guidehead">&ldquo;Why would I need Jesus if I'm already talking to His dad?&rdquo;</h2>
     <div class="guidebody">
       <img class="guideface" src="loren.jpg" alt="Loren Alves" onerror="this.style.display='none'">
-      <p>That's what I asked a pastor. I wasn't raised with any religion &mdash; I wasn't mad at God, I just didn't know Him. I got sober in 1991, and in the late nineties I started going to church because I figured that's where God lived, and my little girl didn't need an AA meeting to learn about Him. I kept being drawn back to church, and over the next six months I found a great pastor &mdash; a patient one &mdash; who helped me unpack that question. In 2000, I surrendered to Jesus and found the God I'd been looking for: the God of the Bible, the One who created me, the Father Jesus calls His own. And now mine.</p>
-      <p>That's why it's called Know God Better Ministries &mdash; helping people know God as the loving Father He is, not the one He's been misrepresented as.</p>
-      <p class="soon"><a href="https://pray.knowgodbetter.org#story">Read my whole story &rarr;</a></p>
+      <p>That's what I asked a pastor. I wasn't raised with any religion &mdash; I wasn't mad at God, I just didn't know Him. I got sober in 1991, and in the late nineties I started going to church because I figured that's where God lived, and my little girl didn't need an AA meeting to learn about Him.</p>
+      <button class="readmore" id="storyMore" onclick="toggleStory(this)">Read more <span class="caret" aria-hidden="true">&#9662;</span></button>
+      <div class="storyrest" id="storyRest">
+        <p>I kept being drawn back to church, and over the next six months I found a great pastor &mdash; a patient one &mdash; who helped me unpack that question. In 2000, I surrendered to Jesus and found the God I'd been looking for: the God of the Bible, the One who created me, the Father Jesus calls His own. And now mine.</p>
+        <p>That's why it's called Know God Better Ministries &mdash; helping people know God as the loving Father He is, not the one He's been misrepresented as.</p>
+        <p class="soon"><a href="https://pray.knowgodbetter.org#story">Read my whole story &rarr;</a></p>
+      </div>
     </div>
   </div>
 </section>
@@ -285,6 +294,14 @@ footer nav a:hover{color:var(--gold-soft)}
     els.forEach(function(el){ io.observe(el); });
   } else { els.forEach(function(el){ el.classList.add("in"); }); }
 })();
+function toggleStory(btn){
+  btn.classList.toggle("open");
+  var r = document.getElementById("storyRest");
+  if(r) r.classList.toggle("open");
+  btn.textContent = btn.classList.contains("open") ? "Read less " : "Read more ";
+  var c = document.createElement("span"); c.className = "caret"; c.setAttribute("aria-hidden","true"); c.innerHTML = "&#9662;";
+  btn.appendChild(c);
+}
 function togglePlan(btn){
   btn.classList.toggle("open");
   var d = btn.nextElementSibling;
