@@ -102,8 +102,8 @@ section{padding:48px 0;border-top:1px solid var(--line)}
 .planrow .chk svg{width:17px;height:17px;stroke:#8a6a1f}
 .planrow .caret{margin-left:auto;color:#8a6a1f;font-size:12px;transition:transform .25s}
 .planrow.open .caret{transform:rotate(180deg)}
-.plandetail{display:none;padding:14px 18px 14px 64px;font-size:14px;color:var(--gold-soft);background:var(--bg);border-bottom:1px solid #e0d6c2}
-.plandetail.open{display:block}
+.plandetail{max-height:0;overflow:hidden;padding:0 18px 0 64px;font-size:14px;color:var(--gold-soft);background:var(--bg);border-bottom:0 solid #e0d6c2;transition:max-height .5s ease,padding .5s ease}
+.plandetail.open{max-height:220px;padding:14px 18px 14px 64px;border-bottom:1px solid #e0d6c2}
 .hotlinks{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 .pill{display:inline-flex;align-items:center;gap:9px;border:1px dashed var(--gold);border-radius:999px;padding:11px 20px;font-family:Georgia,serif;font-size:15px;color:var(--gold-soft);transition:border-color .2s,box-shadow .2s}
 .pill svg{width:17px;height:17px;stroke:currentColor;flex-shrink:0}
@@ -172,7 +172,7 @@ footer nav a:hover{color:var(--gold-soft)}
 /* FADE-UP on scroll */
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.plandetail{transition:none}}
 
 /* LOGO */
 .logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:34px;position:relative}
@@ -290,10 +290,20 @@ footer nav a:hover{color:var(--gold-soft)}
   var rm = matchMedia("(prefers-reduced-motion: reduce)").matches;
   var els = document.querySelectorAll(".reveal");
   if("IntersectionObserver" in window && !rm){
-    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }); }, {threshold:.15});
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); if(e.target.classList.contains("plan")){ cascadePlan(); } io.unobserve(e.target); } }); }, {threshold:.15});
     els.forEach(function(el){ io.observe(el); });
   } else { els.forEach(function(el){ el.classList.add("in"); }); }
 })();
+function cascadePlan(){
+  var rows = document.querySelectorAll(".planrow");
+  rows.forEach(function(btn, i){
+    setTimeout(function(){
+      btn.classList.add("open");
+      var d = btn.nextElementSibling;
+      if(d) d.classList.add("open");
+    }, 350 + i * 260);
+  });
+}
 function toggleStory(btn){
   btn.classList.toggle("open");
   var r = document.getElementById("storyRest");
