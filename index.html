@@ -73,7 +73,12 @@
   .hero-grid .note{order:6}
   .hero-grid .pin{order:7}
 }
-/* Mobile header: logo left-justified (site default), menu button right. */
+/* Mobile header: logo flush LEFT, menu button flush RIGHT (Loren's rule, Aug 15). */
+@media(max-width:820px){
+  header .bar{display:flex !important;justify-content:space-between !important;align-items:center !important}
+  header .brand{margin:0 !important;position:static !important;transform:none !important;left:auto !important}
+  header .burger{margin:0 !important;position:static !important;transform:none !important;right:auto !important}
+}
 </style>
 </head>
 <body>

@@ -41,10 +41,12 @@
     nav.main a{font-size:.76rem}
   }
   @media(max-width:820px){
+    header .wrap{justify-content:space-between !important}
+    .logo-link{margin:0 !important}
     .logo-link img{height:38px}
     .logo-link .wm .l1{font-size:.95rem}
     .logo-link .wm .l2{font-size:.5rem}
-    .menu-toggle{display:block}
+    .menu-toggle{display:block;margin:0 !important;position:static !important}
     nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:var(--night);flex-direction:column;align-items:stretch;gap:0;padding:8px 20px 18px;border-bottom:1px solid #1d3236;z-index:50}
     nav.main.open{display:flex}
     nav.main a{padding:13px 4px;font-size:1rem;border-bottom:1px solid #14282b}
