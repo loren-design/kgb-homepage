@@ -47,12 +47,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-/* Mobile header (added Aug 15): logo centered, menu button pinned right. */
-@media(max-width:820px){
-  header .bar{position:relative;justify-content:center}
-  header .brand{margin:0 auto}
-  header .burger{position:absolute;right:20px;top:50%;transform:translateY(-50%)}
-}
+/* Mobile header: logo left-justified (site default), menu button right. */
+html{scroll-behavior:smooth}
 </style>
 </head>
 <body>
@@ -91,6 +87,10 @@
       <h1>Advanced Lymphatic<em>Wellness &amp; Recovery</em></h1>
       <div class="tagline"><span>Restore</span><span>Recover</span><span>Rejuvenate</span></div>
       <p style="margin-top:22px">Same gentle session every time — you pick how much of you it covers, and how often you come.</p>
+      <div class="ctas" style="justify-content:center;margin-top:22px">
+        <a class="btn btn-outline-d" style="padding:10px 18px;font-size:13px" href="#singles">Single Sessions</a>
+        <a class="btn btn-outline-d" style="padding:10px 18px;font-size:13px" href="#packages">Packages</a>
+      </div>
     </div>
     <div class="seam" style="margin-top:46px">
       <svg viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
@@ -103,7 +103,7 @@
   </div>
 
   <!-- ============ SINGLE SESSIONS ============ -->
-  <section style="padding-top:64px">
+  <section style="padding-top:64px" id="singles">
     <div class="wrap">
       <div class="head center">
         <h2>Single <em>sessions</em></h2>
@@ -141,7 +141,7 @@
   </section>
 
   <!-- ============ FULL BODY PACKAGES ============ -->
-  <section style="padding-top:0">
+  <section style="padding-top:0" id="packages">
     <div class="wrap">
       <div class="head center">
         <h2>Full body <em>packages</em></h2>
@@ -150,28 +150,26 @@
 
       <div class="tiers">
 
-        <div class="tier feature">
+        <div class="tier feature" id="pkg-full-5">
           <div class="ribbon">Most Popular</div>
           <h2>5 Session Package</h2>
           <div class="dur">Full Body · 60 Minutes Each</div>
           <div class="price"><sup>$</sup>680</div>
           <div class="save">Save 20%</div>
-          <span class="perea">$136 per session</span>
           <hr>
-          <p class="incl">Five full-body sessions.<br><b>You get one session free.</b></p>
+          <p class="incl">Five full-body sessions.</p>
           <p class="fit">Perfect for consistent wellness results.</p>
           <a class="btn" href="https://link.t2hm.com/payment-link/6a582d62b1a0a3e48f24d4ad">Buy Package</a>
         </div>
 
-        <div class="tier">
+        <div class="tier" id="pkg-full-10">
           <div class="ribbon">Best Value</div>
           <h2>10 Session Package</h2>
           <div class="dur">Full Body · 60 Minutes Each</div>
           <div class="price"><sup>$</sup>1,190</div>
           <div class="save">Save 30%</div>
-          <span class="perea">$119 per session</span>
           <hr>
-          <p class="incl">Ten full-body sessions.<br><b>You get three sessions free.</b></p>
+          <p class="incl">Ten full-body sessions.</p>
           <p class="fit">Our best value for long-term wellness and maintenance. Klarna &amp; Affirm available at checkout.</p>
           <a class="btn" href="https://link.t2hm.com/payment-link/6a582d94a655fa0b802a4878">Buy Package</a>
         </div>
@@ -181,7 +179,7 @@
   </section>
 
   <!-- ============ LOWER BODY PACKAGE ============ -->
-  <section style="padding-top:0">
+  <section style="padding-top:0" id="pkg-lower">
     <div class="wrap">
       <div class="head center">
         <h2>Lower body <em>package</em></h2>
@@ -194,7 +192,6 @@
             <h3>Lower Body 5 Session Package</h3>
             <div class="dur">Five 40-Minute Sessions · Save 20%</div>
             <div class="price"><sup>$</sup>480</div>
-            <span class="perea" style="margin-top:8px">$96 per session</span>
             <a class="btn" href="https://link.t2hm.com/payment-link/6a582d77a655fa0b802a4877" style="margin-top:16px">Buy 5-Pack</a>
           </div>
           <div>
@@ -238,7 +235,7 @@
         <h2>One session feels good. A series is what changes things.</h2>
         <p>You'll feel lighter after the first visit — that part is immediate. But the results people actually talk about come from consistency.</p>
         <p>For recovery work, and for skin and tone, a run of ten or more sessions is where it shows. That's not a sales line — it's just how it works.</p>
-        <p class="punch">That’s why the 10 Session Package exists: <span class="money" style="color:#fff">$119</span> a session instead of <span class="money" style="color:#fff">$170</span>. It's the full plan, priced like it. And you don't have to pay it all today — Klarna, Affirm, and other pay-later options are right at checkout.</p>
+        <p class="punch">That’s why the packages exist — the longer the series, the lower the price. And you don't have to pay it all today: Klarna, Affirm, and other pay-later options are right at checkout.</p>
         <div class="ctas" style="margin-top:26px">
           <a class="btn" href="https://link.t2hm.com/payment-link/6a582d94a655fa0b802a4878">Buy the 10 Session Package</a>
         </div>
@@ -246,9 +243,9 @@
       <div class="stack">
         <div class="stat"><b>Lower Body Single — $120</b><span>40 minutes, feet to hips. The easiest way to start.</span></div>
         <div class="stat"><b>Full Body Single — $170</b><span>60 minutes. One visit, no commitment.</span></div>
-        <div class="stat"><b>Lower Body 5-Pack — $96 each</b><span>$480 total. Five 40-minute sessions, save 20%.</span></div>
-        <div class="stat"><b>5 Sessions — $136 each</b><span><span class="money" style="color:inherit;font-weight:700">$680</span> total. One session free. Most popular.</span></div>
-        <div class="stat"><b>10 Sessions — $119 each</b><span><span class="money" style="color:inherit;font-weight:700">$1,190</span> total. Three sessions free. Best value.</span></div>
+        <div class="stat"><b>Lower Body 5-Pack — $480</b><span>Five 40-minute sessions. Save 20%.</span></div>
+        <div class="stat"><b>5 Session Package — $680</b><span>Five full-body sessions. Save 20%. Most popular.</span></div>
+        <div class="stat"><b>10 Session Package — $1,190</b><span>Ten full-body sessions. Save 30%. Best value.</span></div>
       </div>
     </div>
   </section>
